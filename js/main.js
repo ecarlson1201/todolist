@@ -5,6 +5,7 @@ function newElement() {
     var valueInput = document.getElementById("myInput").value
     var t = document.createTextNode(valueInput)
     li.appendChild(t)
+    li.className = "item"
     if (valueInput === "") {
         alert("You Must Write Something")
     }

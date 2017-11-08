@@ -1,0 +1,51 @@
+#header {
+    background-color: #8B0000;
+    color: white;
+    width: 600px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.item{
+    background-color: rgb(241, 241, 241);
+    list-style-type: none;
+    width: 600px;
+    height: 20px;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    margin: auto;
+}
+
+.item:nth-child(odd){
+    background-color: rgb(219, 219, 219);
+}
+
+.item:hover{
+    background-color: rgb(185, 185, 185);
+}
+
+#myInput{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 400;
+    height: 25px;
+}
+
+#addButton{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100px;
+    height: 25px;
+    border-style: none;
+    padding: 0;
+    color: white;
+    background-color: rgb(83, 83, 83);
+    font-weight: bold;
+}
+
+#addButton:hover{
+    background-color: rgb(122, 122, 122);
+    cursor: pointer;
+}
