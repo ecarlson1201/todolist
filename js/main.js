@@ -14,6 +14,26 @@ function newElement() {
     }
     document.getElementById("myInput").value = ""
 
+    li.onclick = function () {
+        var classNameString = li.className;
+        var splitClassName = classNameString.split(' ');
+
+        var foundIt = false
+
+        for (i = 0; i < splitClassName.length; i++) {
+
+            if (splitClassName[i] === "checked") {
+                splitClassName.splice(0, 1);
+                foundIt = true;
+                break;
+            }
+        }
+        if (!foundIt) {
+            splitClassName.splice(0, 0, "checked");
+        }
+        var returnClass = splitClassName.join(" ");
+        li.className = returnClass;
+    }
     var close = document.createElement("button")
     var x = document.createTextNode("x")
     close.className = "close"
@@ -25,3 +45,5 @@ function newElement() {
         div.style.display = "none";
     }
 }
+
+
