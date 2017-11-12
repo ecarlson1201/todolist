@@ -19,6 +19,7 @@
     cursor: pointer;
     margin: auto;
     position: relative;
+    user-select: none;
 }
 
 .item:nth-child(odd){
@@ -72,12 +73,21 @@
     color: rgb(219, 219, 219);
 }
 
-.checked{
-    background-color:rgb(56, 56, 56);
+ul li.checked {
+    background-color: rgb(53, 53, 53);
     color: white;
-    font-style: line-through;
+    text-decoration: line-through;
+
 }
 
-.checked:hover{
-    background-color:rgb(56, 56, 56)
+ul li.checked:hover {
+    background-color: rgb(53, 53, 53);
+    color: white;
+    text-decoration: line-through;
+}
+
+ul li.checked:nth-child(odd){
+    background-color: rgb(53, 53, 53);
+    color: white;
+    text-decoration: line-through;
 }
