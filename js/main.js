@@ -17,7 +17,10 @@ function newElement() {
     li.onclick = function () {
         var classNameString = li.className;
         var splitClassName = classNameString.split(' ');
-        var checkMark = document.createTextNode("+")
+        var checkMarkActual = document.createTextNode("X")
+        var checkMark = document.createElement("button")
+        checkMark.className = "checkMark"
+        checkMark.appendChild(checkMarkActual)
         var foundIt = false
 
         for (i = 0; i < splitClassName.length; i++) {
@@ -25,7 +28,7 @@ function newElement() {
             if (splitClassName[i] === "checked") {
                 splitClassName.splice(0, 1);
                 foundIt = true;
-                li.removeChild(li.childNodes[1,2])
+                li.removeChild(li.childNodes[1, 2])
                 break;
             }
         }

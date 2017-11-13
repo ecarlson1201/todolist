@@ -91,3 +91,17 @@ ul li.checked:nth-child(odd){
     color: white;
     text-decoration: line-through;
 }
+
+.checkMark {
+    position: absolute;
+    top:0;
+    left: 0;
+    margin: auto;
+    height: 60px;
+    width: 20px;
+    border-style: none;
+    color: white;
+    background-color: rgb(53, 53, 53);
+    padding: 0;
+    user-select: none;
+}
