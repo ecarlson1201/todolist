@@ -1,7 +1,7 @@
 #header {
     background-color: #8B0000;
     color: white;
-    width: 600px;
+    width: 610px;
     height: 100px;
     text-align: center;
     margin: auto;
@@ -9,10 +9,103 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#filterTitle {
+    text-align: center;
+}
+
+#filter {
+    background-color: #8B0000;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 91px;
+    width: 280px;
+    float: left;
+}
+
+#filtersList {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 111px;
+    width: 300px;
+    float: right;
+}
+
+.newFilter {
+    color:black;
+    font-size: 15px;
+    text-align: left;
+    list-style-type: none;
+}
+
+#myFilterUl {
+    padding: 5px;
+}
+
+#filtersListTitle{
+    margin: 0px;
+    float: left;
+}
+
+#filtersListActual{
+    height: 82px;
+    width: 300px;
+    background-color: white;
+    clear: both;
+}
+
+#clearButton{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100px;
+    height: 25px;
+    border-style: none;
+    padding: 0;
+    color: white;
+    background-color: rgb(83, 83, 83);
+    font-weight: bold;
+    float: right;
+    margin-bottom: 5px;
+}
+
+#clearButton:hover{
+    background-color: rgb(122, 122, 122);
+    cursor: pointer;
+}
+
+#addFilter{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100px;
+    height: 25px;
+    border-style: none;
+    padding: 0;
+    color: white;
+    background-color: rgb(83, 83, 83);
+    font-weight: bold;
+}
+
+#addFilter:hover{
+    background-color: rgb(122, 122, 122);
+    cursor: pointer;
+}
+
+#filterBox{
+    padding: 10px;
+    width: 650px;
+    margin: auto;
+}
+
+#list{
+    clear: both;
+}
+
 .item{
     background-color: rgb(241, 241, 241);
     list-style-type: none;
-    width: 600px;
+    width: 610px;
     height: 20px;
     padding: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;

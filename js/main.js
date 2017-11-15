@@ -52,4 +52,23 @@ function newElement() {
     }
 }
 
+function newFilter() {
+    var li = document.createElement("li")
+    var valueFilter = document.getElementById("myNewFilter").value
+    var f = document.createTextNode(valueFilter)
+    li.appendChild(f)
+    li.className = "newFilter"
+    if (valueFilter === "") {
+        alert("You Must Specify A Filter")
+    }
+    else {
+        document.getElementById("myFilterUl").appendChild(li)
+    }
+    document.getElementById("myNewFilter").value = ""
+}
 
+function clearFilters() {
+    var myFilters = document.getElementsByClassName("newFilter");
+    for(i=0; i<myFilters.length; i++)
+    myFilters[i].style.display = "none"
+}

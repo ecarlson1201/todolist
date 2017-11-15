@@ -13,7 +13,33 @@
         <input type="text" id="myInput" placeholder="Title...">
         <button type="button" onclick="newElement()" id="addButton"> Add </button>
     </div>
+    <br>
+    <div id="filterBox">
+        <div id="filter">
+            <h2 id="filterTitle">
+                Add Filter
+            </h2>
+            <input type="text" id="myNewFilter" placeholder="Filter...">
+            <button type="button" onclick="newFilter()" id="addFilter">Add</button>
+        </div>
+        <div id="filtersList">
+            <div id="filtersListHeader">
+                <h3 id="filtersListTitle">
+                    Filters
+                </h3>
+                <button type="button" onclick = "clearFilters()" id="clearButton">
+                    Clear
+                </button>
+            </div>
+            <div id="filtersListActual">
+                <ul id="myFilterUl">
+
+                </ul>
+            </div>
+        </div>
+    </div>
     <div id="list">
+        <br>
         <ul id="myUl">
         </ul>
     </div>
