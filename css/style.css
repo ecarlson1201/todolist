@@ -41,10 +41,15 @@
 .newFilter {
     color:black;
     font-size: 15px;
-    text-align: left;
-    list-style-type: none;
+    text-align: center;
     margin: 1px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    border-style: none;
+}
+
+.newFilter:hover{
+    cursor: pointer;
+    background-color: rgb(160, 160, 160)
 }
 
 #myFilterUl {
@@ -55,6 +60,7 @@
     height: 113px;
     width: 300px;
     background-color: white;
+    text-align: left;
 }
 
 #clearButton{

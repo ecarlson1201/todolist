@@ -1,7 +1,7 @@
 
 
 function newFilter() {
-    var li = document.createElement("li")
+    var li = document.createElement("button")
     var valueFilter = document.getElementById("myNewFilter").value
     var f = document.createTextNode(valueFilter)
     li.appendChild(f)
@@ -9,23 +9,31 @@ function newFilter() {
     if (valueFilter === "") {
         alert("You Must Specify A Filter")
     }
+// started work for filter duplicates   
     else {
-        var myFilterList = document.getElementById("myFilterUl");
         var foundIt = false
-        console.log(myFilterList)
+        var myFilterList = document.getElementsByClassName("newFilter");
 
         for (i = 0; i < myFilterList.length; i++) {
-            if (myFilterList[i] === valueFilter)
+            if (myFilterList[i] === valueFilter) {
                 foundIt = true
-            break
-
+                break;
+            }
         }
-        if (foundIt === false) {
+        if (!foundIt) {
             document.getElementById("myFilterUl").appendChild(li)
         }
     }
     document.getElementById("myNewFilter").value = ""
     foundIt = false
+
+
+// started onclick filter function
+    li.onclick = function () {
+        var listItems = document.getElementsByClassName("item")
+        var filterButton = document.getElementById("myNewFilter")
+        var listFilters = listItems.className
+    }
 }
 
 function newElement() {
@@ -84,6 +92,7 @@ function newElement() {
     close.onclick = function () {
         var div = this.parentElement;
         div.style.display = "none";
+        console.log(close)
     }
 }
 
