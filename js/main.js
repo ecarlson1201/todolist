@@ -7,7 +7,7 @@ function newElement() {
     li.appendChild(t)
     li.className = "item"
     if (valueInput === "") {
-        alert("You Must Write Something")
+        alert("You Must Write Something To Do")
     }
     else {
         document.getElementById("myUl").appendChild(li)
@@ -69,6 +69,10 @@ function newFilter() {
 
 function clearFilters() {
     var myFilters = document.getElementsByClassName("newFilter");
-    for(i=0; i<myFilters.length; i++)
-    myFilters[i].style.display = "none"
+    for (i = 0; i < myFilters.length; i++)
+        myFilters[i].style.display = "none";
+
+    var myItems = document.getElementsByClassName("item");
+    for (i = 0; i < myItems.length; i++)
+        myItems[i].style.display = "none";
 }
