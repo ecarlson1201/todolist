@@ -1,5 +1,33 @@
 
 
+function newFilter() {
+    var li = document.createElement("li")
+    var valueFilter = document.getElementById("myNewFilter").value
+    var f = document.createTextNode(valueFilter)
+    li.appendChild(f)
+    li.className = "newFilter"
+    if (valueFilter === "") {
+        alert("You Must Specify A Filter")
+    }
+    else {
+        var myFilterList = document.getElementById("myFilterUl");
+        var foundIt = false
+        console.log(myFilterList)
+
+        for (i = 0; i < myFilterList.length; i++) {
+            if (myFilterList[i] === valueFilter)
+                foundIt = true
+            break
+
+        }
+        if (foundIt === false) {
+            document.getElementById("myFilterUl").appendChild(li)
+        }
+    }
+    document.getElementById("myNewFilter").value = ""
+    foundIt = false
+}
+
 function newElement() {
     var li = document.createElement("li")
     var valueInput = document.getElementById("myInput").value
@@ -13,6 +41,13 @@ function newElement() {
         document.getElementById("myUl").appendChild(li)
     }
     document.getElementById("myInput").value = ""
+
+    var itemFilter = document.getElementById("myNewFilter").value
+    var addFilterClass = li.className;
+    var splitFilterClass = addFilterClass.split(' ');
+    splitFilterClass.splice(1, 0, itemFilter);
+    var returnFilterClass = splitFilterClass.join(' ');
+    li.className = returnFilterClass;
 
     li.onclick = function () {
         var classNameString = li.className;
@@ -50,21 +85,6 @@ function newElement() {
         var div = this.parentElement;
         div.style.display = "none";
     }
-}
-
-function newFilter() {
-    var li = document.createElement("li")
-    var valueFilter = document.getElementById("myNewFilter").value
-    var f = document.createTextNode(valueFilter)
-    li.appendChild(f)
-    li.className = "newFilter"
-    if (valueFilter === "") {
-        alert("You Must Specify A Filter")
-    }
-    else {
-        document.getElementById("myFilterUl").appendChild(li)
-    }
-    document.getElementById("myNewFilter").value = ""
 }
 
 function clearFilters() {
