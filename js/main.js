@@ -1,38 +1,48 @@
 
 
 function newFilter() {
-    var li = document.createElement("button")
+    var filterButton = document.createElement("button")
     var valueFilter = document.getElementById("myNewFilter").value
     var f = document.createTextNode(valueFilter)
-    li.appendChild(f)
-    li.className = "newFilter"
+    filterButton.appendChild(f)
+    filterButton.className = "newFilter"
     if (valueFilter === "") {
         alert("You Must Specify A Filter")
     }
-// started work for filter duplicates   
     else {
         var foundIt = false
         var myFilterList = document.getElementsByClassName("newFilter");
-
         for (i = 0; i < myFilterList.length; i++) {
-            if (myFilterList[i] === valueFilter) {
+            var myFilterActual = myFilterList[i].innerText;
+            if (myFilterActual === valueFilter) {
                 foundIt = true
                 break;
             }
         }
         if (!foundIt) {
-            document.getElementById("myFilterUl").appendChild(li)
+            document.getElementById("myFilterUl").appendChild(filterButton)
         }
+
     }
     document.getElementById("myNewFilter").value = ""
-    foundIt = false
 
 
-// started onclick filter function
-    li.onclick = function () {
-        var listItems = document.getElementsByClassName("item")
-        var filterButton = document.getElementById("myNewFilter")
-        var listFilters = listItems.className
+    filterButton.onclick = function () {
+        var listItem = document.getElementsByClassName("item");
+        for (i = 0; i < listItem.length; i++) {
+            var classItem = listItem[i].className;
+            var splitItemClass = classItem.split(' ');
+            var foundClass = false;
+            for (y = 0; y < splitItemClass.length; y++) {
+                if (splitItemClass[y] === valueFilter) {
+                    foundClass = true;
+                    break;
+                }
+            }
+            if (!foundClass) {
+                listItem[i].style.display = "none";
+            }
+        }
     }
 }
 
@@ -59,6 +69,7 @@ function newElement() {
 
     li.onclick = function () {
         var classNameString = li.className;
+        console.log(classNameString)
         var splitClassName = classNameString.split(' ');
         var checkMarkActual = document.createTextNode("X")
         var checkMark = document.createElement("button")
