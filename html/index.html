@@ -1,7 +1,6 @@
 <html>
 
 <head>
-    <script src="../js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
@@ -11,31 +10,19 @@
             My To Do List
         </h1>
         <input type="text" id="myInput" placeholder="Title...">
-        <input type="text" id="myNewFilter" placeholder="Filter...">
-        <button type="button" onclick="newElement();newFilter()" id="addButton"> Add </button>
-        <button type="button" onclick="clearFilters()" id="clearButton">
-            Clear List
-        </button>
+        <input type="text" id="myNewFilter" onkeydown="newFilter()" placeholder="Filter...">
+        <button type="button" id="addButton"> Add </button>
     </div>
     <br>
-    <div id="filtersList">
-        <div id="filtersListHeader">
-            <h3 id="filtersListTitle">
-                Filters
-            </h3>
-
-        </div>
-        <div id="filtersListActual">
-            <div id="myFilterUl">
-
-            </div>
-        </div>
-    </div>
     <div id="list">
         <br>
         <ul id="myUl">
         </ul>
     </div>
 </body>
+<script src="../js/main.js"></script>
+<script src="../js/to-do-store.js"></script>
+<script src="../js/dom-renderer.js"></script>
+<script src="../js/buttons.js"></script>
 
 </html>

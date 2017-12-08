@@ -9,104 +9,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#filterTitle {
-    text-align: center;
-}
-
-#filter {
-    background-color: #8B0000;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 91px;
-    width: 280px;
-}
-
-#filtersListTitle{
-    margin: 0;
-}
-
-#filtersList {
-    background-color: #8B0000;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 150px;
-    width: 300px;
-    margin: auto;
-}
-
-.newFilter {
-    color:black;
-    font-size: 15px;
-    text-align: center;
-    margin: 1px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    border-style: none;
-}
-
-.newFilter:hover{
-    cursor: pointer;
-    background-color: rgb(160, 160, 160)
-}
-
-#myFilterUl {
-    padding: 5px;
-}
-
-#filtersListActual{
-    height: 113px;
-    width: 300px;
-    background-color: white;
-    text-align: left;
-}
-
-#clearButton{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100px;
-    height: 25px;
-    border-style: none;
-    padding: 0;
-    color: white;
-    background-color: rgb(83, 83, 83);
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-#clearButton:hover{
-    background-color: rgb(122, 122, 122);
-    cursor: pointer;
-}
-
-#addFilter{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100px;
-    height: 25px;
-    border-style: none;
-    padding: 0;
-    color: white;
-    background-color: rgb(83, 83, 83);
-    font-weight: bold;
-}
-
-#addFilter:hover{
-    background-color: rgb(122, 122, 122);
-    cursor: pointer;
-}
-
-.closeFilter{
-    border-style: none;
-    margin-left: 5px;
-    background-color: rgb(170, 170, 170);
-}
-
-.closeFilter:hover{
-    cursor: pointer;
-    background-color: rgb(204, 204, 204)
-}
-
 .item{
     background-color: rgb(241, 241, 241);
     list-style-type: none;
@@ -131,11 +33,6 @@
 #myInput{
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 400;
-    height: 25px;
-}
-
-#myNewFilter{
-    font-family: Georgia, 'Times New Roman', Times, serif;
     height: 25px;
 }
 
