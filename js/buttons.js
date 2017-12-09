@@ -14,6 +14,17 @@
 })()
 
 var newFilterBox = document.getElementById("myNewFilter")
-newFilterBox.onkeydown = function () {
+newFilterBox.onkeyup = function () {
+    var toDoArray = toDoStore.readToDos()
+    var splitFilter = newFilterBox.value.split("")
+    var currentFilterLetter = splitFilter[splitFilter.length - 1]
 
+    for (i = 0; i < toDoArray.length; i++) {
+        var currentToDo = toDoArray[i]
+        var currentToDoLetter = currentToDo.charAt(splitFilter.indexOf(currentFilterLetter))
+        if (currentToDoLetter != currentFilterLetter) {
+            toDoStore.deleteToDos(currentToDo)
+        }
+    }
+    renderDom()
 }
