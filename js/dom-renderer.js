@@ -8,6 +8,10 @@ var renderDom = function () {
         newLi.className = "item"
         newLi.id = toDo
 
+        newLi.onclick = function () {
+            newLi.classList.toggle("checked")
+        }
+
         var closeButton = document.createElement("button")
         closeButton.className = "close"
         closeButton.appendChild(document.createTextNode("x"))
@@ -15,7 +19,7 @@ var renderDom = function () {
         renderedLiList.appendChild(newLi)
 
         closeButton.onclick = function (e) {
-            var x = e.target.parentElement.innerText.slice(0,-1)
+            var x = e.target.parentElement.innerText.slice(0, -1)
             toDoStore.deleteToDos(x)
             renderDom()
         }
