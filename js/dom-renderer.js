@@ -6,6 +6,7 @@ var renderDom = function () {
         var newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(toDo))
         newLi.className = "item"
+        newLi.id = toDo
 
         var closeButton = document.createElement("button")
         closeButton.className = "close"

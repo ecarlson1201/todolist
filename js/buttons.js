@@ -15,16 +15,22 @@
 
 var newFilterBox = document.getElementById("myNewFilter")
 newFilterBox.onkeyup = function () {
-    var toDoArray = toDoStore.readToDos()
     var splitFilter = newFilterBox.value.split("")
     var currentFilterLetter = splitFilter[splitFilter.length - 1]
 
-    for (i = 0; i < toDoArray.length; i++) {
-        var currentToDo = toDoArray[i]
-        var currentToDoLetter = currentToDo.charAt(splitFilter.indexOf(currentFilterLetter))
+    toDoStore.readToDos().forEach(function (toDo) {
+        var currentToDoLetter = toDo.charAt(splitFilter.indexOf(currentFilterLetter))
         if (currentToDoLetter != currentFilterLetter) {
-            toDoStore.deleteToDos(currentToDo)
+            var filteredToDo = document.getElementById(toDo);
+            toDoStore.deleteToDos(toDo)
+            renderDom()
+            toDoStore.createToDos(toDo)
         }
-    }
+    })
+}
+
+var refreshListButton = document.getElementById("refreshButton");
+refreshListButton.onclick = function() {
+    newFilterBox.value = ""
     renderDom()
 }
