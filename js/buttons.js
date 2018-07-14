@@ -1,4 +1,4 @@
-(function () {
+((function () {
     var addToDoButton = document.getElementById("addButton")
     addToDoButton.onclick = function () {
         var valueInput = document.getElementById("myInput")
@@ -34,3 +34,4 @@ refreshListButton.onclick = function() {
     newFilterBox.value = ""
     renderDom()
 }
+)
