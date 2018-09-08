@@ -1,4 +1,4 @@
-((function () {
+window.onload = function(){
     var addToDoButton = document.getElementById("addButton")
     addToDoButton.onclick = function () {
         var valueInput = document.getElementById("myInput")
@@ -11,7 +11,7 @@
         valueInput.value = ''
         renderDom()
     }
-})()
+
 
 var newFilterBox = document.getElementById("myNewFilter")
 newFilterBox.onkeyup = function () {
@@ -33,5 +33,4 @@ var refreshListButton = document.getElementById("refreshButton");
 refreshListButton.onclick = function() {
     newFilterBox.value = ""
     renderDom()
-}
-)
+}}
