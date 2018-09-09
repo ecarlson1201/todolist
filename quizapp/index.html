@@ -13,8 +13,8 @@
     <header role='banner' class='header'></header>
 
     <div class="js-quiz hidden">
-        <h2 class="js-question question"></h2>
         <form>
+            <h2 class="js-question question"></h2>
             <label for="ans-a"></label>
             <input type="radio" name="answers" id="ans-a">
             <br>
@@ -32,10 +32,13 @@
     </div>
     <div class="js-quiz">
         <h2 class="js-result"></h2>
-        <button class="js-proceed"></button>
+        <button class="js-next">Next Question</button>
+        <button class="js-restart hidden">Restart Quiz</button>
     </div>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="./js/data.js"></script>
+    <script src="./js/store.js"></script>
+    <script src="./js/elements.js"></script>
     <script src="./js/functions.js"></script>
     <script src="./js/dom-renderer.js"></script>
 </body>

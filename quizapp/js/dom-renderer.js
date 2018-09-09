@@ -1,7 +1,7 @@
 const renderDom = function () {
-    counter.reset()
-    proceedQuiz()
-    currentClickedAnswer()
-    submitAnswer()
-}
-renderDom()
+    handleSubmitAnswer();
+    displayNavButtons();
+    handleNextQuestion();
+    handleRestartQuiz();
+};
+renderDom();

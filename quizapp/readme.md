@@ -1,4 +1,4 @@
-/* The starting screen should have a button that users can click to start the quiz.
+The starting screen should have a button that users can click to start the quiz.
 
 function that listens for start button click
 
@@ -31,4 +31,4 @@ function that mutes all sounders
 
 Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.
 
-Users should be able to start a new quiz. */
+Users should be able to start a new quiz.

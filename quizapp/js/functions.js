@@ -1,129 +1,84 @@
 'use strict';
-
-// counter that tracks current question and correct answer count, adds to question and correct answer count, and resets count
-const counter = (function () {
-    let counterModule = {};
-    let currentQuestion = 0;
-    let currentCorrect = 0
-
-    counterModule.nextQuestion = function () {
-        return currentQuestion++
-    };
-
-    counterModule.addCorrect = function () {
-        return currentCorrect++
-    };
-
-    counterModule.currentQuestion = function () {
-        return currentQuestion
-    };
-
-    counterModule.currentCorrect = function () {
-        return currentCorrect
-    };
-
-    counterModule.reset = function () {
-        currentQuestion = 0;
-        currentCorrect = 0;
-    };
-
-    return counterModule
-})();
-
-// displays the current question number out of ten
+// displays the current question number out of total questions and total number correct
 const displayQuestionNumber = function () {
-    $('header').text(`Question ${counter.currentQuestion()} of 10 (${counter.currentCorrect()} correct)`)
-};
-
-// retrieves index of question in data based on current question count
-const getCurrentIndex = function () {
-    let questionIndex = counter.currentQuestion() - 1;
-    return questionIndex;
-};
-
-// clears text of h2 and li's that display question and answers
-const clearQuestion = function () {
-    $('h2').text('')
-    $('input').val('').after('');
+    HEADER.text(`Question ${counter.currentQuestion()} of ${questionsList.length} (${counter.currentCorrect()} correct)`);
+    if (counter.currentQuestion() > questionsList.length){
+        HEADER.text(`Question ${questionsList.length} of ${questionsList.length} (${counter.currentCorrect()} correct)`);
+    };
 };
 
 // displays question and answers of current question
 const generateQuestion = function () {
-    clearQuestion()
-    displayQuestionNumber()
-    let current = questionsList[getCurrentIndex()]
+    QUESTION.text('')
+    INPUT.val('');
+    displayQuestionNumber();
+    let current = questionsList[counter.currentQuestion() - 1];
 
-    $('.js-question').text(current.question);
+    QUESTION.text(current.question);
 
-    $('input').each(function (index) {
-        $(this).val(current.options[index])
+    INPUT.each(function (index) {
+        $(this).val(current.options[index]);
     });
 
     $('label').each(function (index) {
-        $(this).text(current.options[index])
+        $(this).text(current.options[index]);
     });
 };
 
-// removes all js.checked classes from inputs
-const resetChecked = function () {
-    $('input').removeClass('js-checked')
-
-}
-
 // removes 'js.checked' class from all inputs and adds it to the last clicked input
-const currentClickedAnswer = function () {
-    $('input').click(function (event) {
-        event.preventDefault()
-        resetChecked()
-        $(this).addClass('js-checked')
-    })
-}
+(function () {
+    INPUT.click(function (event) {
+        event.preventDefault();
+        INPUT.removeClass('js-checked');
+        $(this).addClass('js-checked');
+    });
+})();
 
-// toggles hidden class
-const resetStyleDisplay = function () {
-    $('.js-quiz').toggleClass('hidden')
-}
-
-// calls a different function whether or not the correct answer was submitted
-const submitAnswer = function () {
-    $('button').click(function (event) {
-        event.preventDefault()
-        let currentCorrect = questionsList[getCurrentIndex()]
-        let currentSelected = $('.js-checked').val()
-        if (currentCorrect.answer === currentSelected) {
-            $('.js-result').text('correct')
-            resetStyleDisplay()
-            counter.addCorrect()
-            resetChecked()
+// displays results of submitted answer
+const handleSubmitAnswer = function () {
+    $('.js-submit').click(function (event) {
+        event.preventDefault();
+        if (questionsList[counter.currentQuestion() - 1].answer === $('.js-checked').val()) {
+            RESULT.text('correct');
+            counter.addCorrect();
         }
         else {
-            $('.js-result').text('incorrect')
-            resetStyleDisplay()
-            resetChecked()
-        }
-    })
-}
+            RESULT.text('incorrect')
+        };
+        QUIZ.toggleClass('hidden')
+        INPUT.removeClass('js-checked');
+    });
+};
 
-const restartQuiz = function () {
-    renderDom()
-}
+const handleNextQuestion = function () {
+    NEXT.click(function (event) {
+        event.preventDefault();
+        counter.nextQuestion();
+        displayNavButtons();
+        generateQuestion();
+        QUIZ.toggleClass('hidden')
+    });
+};
 
-const nextQuestion = function () {
-    $('.js-proceed').text('Begin Question')
-    $('.js-proceed').click(function (event) {
-        event.preventDefault()
-        counter.nextQuestion()
-        generateQuestion()
-    })
-}
-nextQuestion()
+const handleRestartQuiz = function () {
+    RESTART.click(function (event) {
+        event.preventDefault();
+        counter.reset();
+        displayNavButtons();
+    });
+};
 
-const proceedQuiz = function () {
+const displayNavButtons = function () {
     if (counter.currentQuestion() > questionsList.length) {
-        $('.js-proceed').text('Restart Quiz')
-        restartQuiz()
+        RESTART.removeClass('hidden')
+        NEXT.addClass('hidden')
     }
-    else {
-        $('.js-proceed').text('Begin Quiz')
+    if (counter.currentQuestion() <= questionsList.length) {
+        RESTART.addClass('hidden')
+        NEXT.removeClass('hidden')
+        NEXT.text('Next Question')
     }
-}
+    if (counter.currentQuestion() === 0) {
+        NEXT.text('Start Quiz')
+    }
+};
